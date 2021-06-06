@@ -86,6 +86,9 @@ const showLoading = () => {
             return <Redirect to="/user/dashboard" />
            }
         }
+        if(isAunthenticated()){
+            return <Redirect to='/' />
+        }
     }
     return (
         <div>

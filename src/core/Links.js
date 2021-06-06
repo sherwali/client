@@ -25,9 +25,22 @@ export default function Links() {
       <Link href="/"  color="inherit">
         HOME
       </Link>
-      <Link href="/user/dashboard"  color="inherit">
+     {isAunthenticated()  && isAunthenticated().user.role===0 && (
+        <Link href="/user/dashboard"  color="inherit">
         Dashboard
       </Link>
+     )}
+
+{isAunthenticated()  && isAunthenticated().user.role===1 && (
+        <Link href="/admin/dashboard"  color="inherit">
+        Dashboard
+      </Link>
+     )}
+
+
+
+
+     
       {!isAunthenticated()  && 
       
       (<><Link href="/signup" color="inherit">

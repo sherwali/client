@@ -4,7 +4,7 @@ import Layout from '../core/Layout'
 import {Link} from 'react-router-dom'
 
 
- const Dashboard = () => {
+ const AdminDashboard = () => {
 
     const {user: {_id,name,email,role}} = isAunthenticated()
 
@@ -14,10 +14,10 @@ import {Link} from 'react-router-dom'
                 <h4>Admin links</h4>
              <ul>
             <li>
-                <Link to='/create/category'>Creat Category</Link>
+                <Link to='/create/category'>create Category</Link>
             </li>
             <li>
-            <Link to='/create/product'>Update Profile</Link>
+            <Link to='/create/product'>Create Product</Link>
             </li>
             <li>{role=== 1 ? 'admin' : 'Registred user'}</li>
         </ul>
@@ -25,21 +25,35 @@ import {Link} from 'react-router-dom'
         )
     }
 
+    const adminInfo = () => {
+        return (
+            <div>
+            <h3> Admin Information</h3> 
+            <ul>
+            <li>{name}</li>
+            <li>{email}</li>
+            <li>{role=== 1 ? 'admin' : 'Registred user'}</li>
+        </ul>
+        </div>
+        )
+    }
+
+   
+
+
+
 
 
     return (
        <Layout title={`G'day ${name}`} description='User dashboard'>
 
-        <div>
-          <h3> User Information</h3> 
-        <ul>
-            <li>{name}</li>
-            <li>{email}</li>
-            <li>{role=== 1 ? 'admin' : 'Registred user'}</li>
-        </ul>
+       
+         
 
-        </div>
+          {adminInfo()}
         
+     
+       
 
         {adminLinks()}
 
@@ -47,4 +61,4 @@ import {Link} from 'react-router-dom'
     )
 }
 
-export default Dashboard
+export default AdminDashboard
