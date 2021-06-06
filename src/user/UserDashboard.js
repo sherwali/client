@@ -25,21 +25,22 @@ import {Link} from 'react-router-dom'
         )
     }
 
-
-
-    return (
-       <Layout title={`G'day ${name}`} description='User dashboard'>
-
-        <div>
-          <h3> User Information</h3> 
-        <ul>
+    const userInfo = () => {
+        return (
+            <div>
+            <h3> User Information</h3> 
+            <ul>
             <li>{name}</li>
             <li>{email}</li>
             <li>{role=== 1 ? 'admin' : 'Registred user'}</li>
         </ul>
-
         </div>
-        <div>
+        )
+    }
+
+    const PurchaseHistory = () => {
+        return (
+            <div>
             <h3>purchase history</h3>
             <ul>
             <li>history</li>
@@ -47,6 +48,23 @@ import {Link} from 'react-router-dom'
         </ul>
 
         </div>
+        )
+    }
+
+
+
+
+
+    return (
+       <Layout title={`G'day ${name}`} description='User dashboard'>
+
+       
+         
+
+          {userInfo()}
+        
+     
+        {PurchaseHistory()}
 
         {userLinks()}
 
